@@ -19,6 +19,8 @@ public class LoginBean {
 
     private User user;
 
+    private boolean logged = false;
+
     public LoginBean() {
         this.user = new User();
     }
@@ -44,7 +46,7 @@ public class LoginBean {
     }
 
     public boolean isLogged() {
-        return this.user.getNick() != null;
+        return this.logged;
     }
 
     public boolean isAdministrator() {
@@ -60,6 +62,7 @@ public class LoginBean {
         if (usr != null) {
             this.setUser(usr);
             Logger.getLogger(LoginBean.class).info("entrar correcto: " + usr.getNick());
+            this.logged = true;
             result = "home";
         } else {
             context.addMessage("form", new FacesMessage("Usuario o contraseña incorrectos"));
