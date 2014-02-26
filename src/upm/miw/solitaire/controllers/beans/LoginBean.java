@@ -63,6 +63,7 @@ public class LoginBean {
             result = "home";
         } else {
             context.addMessage("form", new FacesMessage("Usuario o contraseña incorrectos"));
+            this.user.setNick(null);
         }
         return result;
     }
